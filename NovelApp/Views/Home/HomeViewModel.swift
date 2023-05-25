@@ -34,7 +34,7 @@ class HomeViewModel: ObservableObject {
     }
 
    private func loadAllEventsLocal() {
-        guard let events = manager.getLocalEvent(.events) else { return }
+       guard let events = manager.getLocalEvent(.events) else { return }
         allEvents = events
     }
 }

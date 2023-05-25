@@ -34,7 +34,6 @@ class EventService {
             URLQueryItem(name: Keys.clientID.rawValue, value: clientId),
             URLQueryItem(name: Keys.clientSecret.rawValue, value: clientSecret),
         ]
-
         guard let url = urlComponents?.url else { return nil }
         var request = URLRequest(url: url)
         request.httpMethod = TypeRequest.GET.rawValue
@@ -53,7 +52,6 @@ class EventService {
             URLQueryItem(name: Keys.clientID.rawValue, value: clientId),
             URLQueryItem(name: Keys.clientSecret.rawValue, value: clientSecret),
         ]
-
         guard let url = urlComponents?.url else { return nil }
         var request = URLRequest(url: url)
         request.httpMethod = TypeRequest.GET.rawValue

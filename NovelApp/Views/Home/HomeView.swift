@@ -29,7 +29,6 @@ struct HomeView: View {
                         }
                     }
                 }.task {
-                    #warning("Mock Data is active")
                     loadData()
                 }
                 .navigationTitle("Events")
@@ -37,6 +36,7 @@ struct HomeView: View {
         }
 
     private func loadData() {
+        #warning("Mock Data is active")
         model.loadAllEvents(mockData: true)
     }
 

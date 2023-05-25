@@ -44,7 +44,7 @@ struct Event: Codable, Identifiable {
 struct AccessMethod: Codable {
     let method: String?
     let employee_only: Bool?
-    
+
     func accessWithQRCode() -> Bool {
         return method == "QRCODE"
     }

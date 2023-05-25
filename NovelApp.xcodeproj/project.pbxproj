@@ -38,6 +38,9 @@
 		E268C0C82A1FBA5F00B15022 /* ParsingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0C72A1FBA5F00B15022 /* ParsingUtils.swift */; };
 		E268C0CB2A1FBCFA00B15022 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E268C0CA2A1FBCFA00B15022 /* Kingfisher */; };
 		E268C0CD2A1FBF8800B15022 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0CC2A1FBF8800B15022 /* Icons.swift */; };
+		E268C0D02A1FCC7700B15022 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0CF2A1FCC7700B15022 /* DetailView.swift */; };
+		E268C0D22A1FCC8000B15022 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0D12A1FCC8000B15022 /* DetailViewModel.swift */; };
+		E268C0D62A1FCFE800B15022 /* UtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0D52A1FCFE800B15022 /* UtilsTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +87,9 @@
 		E268C0C32A1FB77D00B15022 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		E268C0C72A1FBA5F00B15022 /* ParsingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingUtils.swift; sourceTree = "<group>"; };
 		E268C0CC2A1FBF8800B15022 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		E268C0CF2A1FCC7700B15022 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		E268C0D12A1FCC8000B15022 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		E268C0D52A1FCFE800B15022 /* UtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				E21131DF2A1F60CB007F00A5 /* EventsTests.swift */,
+				E268C0D52A1FCFE800B15022 /* UtilsTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -210,8 +217,8 @@
 		E268C0922A1F6B0900B15022 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E268C0932A1F6B1500B15022 /* EventService.swift */,
 				E268C09C2A1F733400B15022 /* NetworkService.swift */,
+				E268C0932A1F6B1500B15022 /* EventService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -246,6 +253,7 @@
 		E268C0AC2A1FABEC00B15022 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E268C0CE2A1FCC6B00B15022 /* DetailView */,
 				E268C0BB2A1FB6CB00B15022 /* Reusable */,
 				E268C0AD2A1FABF200B15022 /* Home */,
 			);
@@ -294,6 +302,15 @@
 				E268C0C72A1FBA5F00B15022 /* ParsingUtils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		E268C0CE2A1FCC6B00B15022 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				E268C0CF2A1FCC7700B15022 /* DetailView.swift */,
+				E268C0D12A1FCC8000B15022 /* DetailViewModel.swift */,
+			);
+			path = DetailView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -458,7 +475,9 @@
 				E268C09B2A1F730B00B15022 /* NetworkError.swift in Sources */,
 				E268C0872A1F692600B15022 /* URL.swift in Sources */,
 				E268C0972A1F6B4800B15022 /* EventsResponse.swift in Sources */,
+				E268C0D22A1FCC8000B15022 /* DetailViewModel.swift in Sources */,
 				E268C0A02A1F8D8600B15022 /* APIKeys.swift in Sources */,
+				E268C0D02A1FCC7700B15022 /* DetailView.swift in Sources */,
 				E268C0BD2A1FB6DA00B15022 /* CardStructView.swift in Sources */,
 				E268C0AF2A1FABFC00B15022 /* HomeViewModel.swift in Sources */,
 				E268C0AB2A1FAB5800B15022 /* LoadEventType.swift in Sources */,
@@ -478,6 +497,7 @@
 			files = (
 				E21131E02A1F60CB007F00A5 /* EventsTests.swift in Sources */,
 				E268C08E2A1F6A6C00B15022 /* URLSessionFake.swift in Sources */,
+				E268C0D62A1FCFE800B15022 /* UtilsTest.swift in Sources */,
 				E268C0842A1F690B00B15022 /* FakeResponseData.swift in Sources */,
 				E268C08B2A1F698600B15022 /* URL.swift in Sources */,
 			);
