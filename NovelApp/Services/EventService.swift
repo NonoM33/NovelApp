@@ -3,7 +3,7 @@
 //  NovelApp
 //
 //  Created by renaud on 25/05/2023.
-// swiftlint:disable line_length
+//
 
 import Foundation
 
@@ -29,15 +29,15 @@ class EventService {
     }
 
     func prepareGetEventsRequest() -> URLRequest? {
-        var urlComponents = URLComponents(string: "https://api.seatgeek.com/2/events")
+        var urlComponents = URLComponents(string: BASE_URL)
         urlComponents?.queryItems = [
-            URLQueryItem(name: "client_id", value: clientId),
-            URLQueryItem(name: "client_secret", value: clientSecret),
+            URLQueryItem(name: Keys.clientID.rawValue, value: clientId),
+            URLQueryItem(name: Keys.clientSecret.rawValue, value: clientSecret),
         ]
 
         guard let url = urlComponents?.url else { return nil }
         var request = URLRequest(url: url)
-        request.httpMethod = "GET"
+        request.httpMethod = TypeRequest.GET.rawValue
         return request
     }
 
@@ -48,15 +48,15 @@ class EventService {
     }
 
     func prepareGetEventDetailRequest(id: Int) -> URLRequest? {
-        var urlComponents = URLComponents(string: "https://api.seatgeek.com/2/events/\(id)")
+        var urlComponents = URLComponents(string: BASE_URL + "/\(id)")
         urlComponents?.queryItems = [
-            URLQueryItem(name: "client_id", value: clientId),
-            URLQueryItem(name: "client_secret", value: clientSecret),
+            URLQueryItem(name: Keys.clientID.rawValue, value: clientId),
+            URLQueryItem(name: Keys.clientSecret.rawValue, value: clientSecret),
         ]
 
         guard let url = urlComponents?.url else { return nil }
         var request = URLRequest(url: url)
-        request.httpMethod = "GET"
+        request.httpMethod = TypeRequest.GET.rawValue
         return request
     }
 }

@@ -20,7 +20,7 @@ class NetworkService {
         task = session.dataTask(with: request) { [weak self] data, _, error in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
-                    print(error?.localizedDescription ?? "No data")
+                    print(ERROR_ALERT_MESSAGE, error?.localizedDescription ?? PARSING_ERROR)
                     completion(.failure(.nodata))
                     return
                 }
@@ -28,7 +28,7 @@ class NetworkService {
                     let response = try JSONDecoder().decode(T.self, from: data)
                     completion(.success(response))
                 } catch {
-                    print(error)
+                    print(ERROR_ALERT_MESSAGE, error.localizedDescription)
                     completion(.failure(.parsingError))
                 }
                 self?.task = nil

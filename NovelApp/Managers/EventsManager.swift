@@ -8,23 +8,20 @@
 import Foundation
 
 class EventsManager: ObservableObject {
-    @Published var allEvents: [Event]?
-
-    private init() {}
-
-    func getAllFixture() {
+    func getAllFixture(_ completion: @escaping (Result<[Event]?, Error>) -> Void) {
         EventService.shared.getEvents { result in
             switch result {
             case let .success(events):
-                self.allEvents = events.events
+                completion(.success(events.events))
             case let .failure(failure):
-                print(failure)
+                print(ERROR_ALERT_MESSAGE, failure.localizedDescription)
+                completion(.failure(failure))
             }
         }
     }
 
-    func getLocalEvent(_ eventType: LoadEventType) {
-        allEvents = loadEventFromJSON(eventType)
+    func getLocalEvent(_ eventType: LoadEventType) -> [Event]? {
+        loadEventFromJSON(eventType)
     }
 }
 
@@ -38,7 +35,7 @@ func loadEventFromJSON(_ eventType: LoadEventType) -> [Event]? {
         let decodedData = try decoder.decode(EventsResponse.self, from: data)
         return decodedData.events
     } catch {
-        print("Error decoding Got list JSON: \(error)")
+        print(ERROR_ALERT_MESSAGE, error.localizedDescription)
     }
     return nil
 }

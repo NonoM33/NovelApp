@@ -7,4 +7,4 @@
 
 import Foundation
 
-let BASE_URL = "https://www.fabernovel.com/"
+let BASE_URL = "https://api.seatgeek.com/2/events"

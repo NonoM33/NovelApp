@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum Keys: Hashable {
-    case clientID, clientSecret
+enum Keys: String, Hashable {
+    case clientID = "client_id"
+    case clientSecret = "client_secret"
 }
