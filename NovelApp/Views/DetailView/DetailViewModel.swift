@@ -7,14 +7,10 @@
 
 import SwiftUI
 
-struct DetailViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+class DetailViewModel: ObservableObject {
+    @Published var event: Event
 
-struct DetailViewModel_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailViewModel()
+    init(event: Event) {
+        self.event = event
     }
 }
