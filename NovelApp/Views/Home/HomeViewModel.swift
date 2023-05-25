@@ -11,9 +11,9 @@ class HomeViewModel: ObservableObject {
     let manager = EventsManager()
     @Published var allEvents: [Event] = []
     @Published var error: String?
+    @Published var showDetail: Bool = false
 
-    func loadAllEvents(mockData: Bool = false)
-    {
+    func loadAllEvents(mockData: Bool = false) {
         if mockData {
             loadAllEventsLocal()
             return
@@ -28,9 +28,13 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
-    
+
     func isLoading() -> Bool {
         return self.allEvents.isEmpty
+    }
+    
+    func showingDetail() {
+        showDetail = true
     }
 
    private func loadAllEventsLocal() {

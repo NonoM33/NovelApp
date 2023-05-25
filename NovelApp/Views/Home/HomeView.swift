@@ -9,35 +9,49 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var model = HomeViewModel()
+    @State private var selectedEvent: Event?
 
     var body: some View {
         NavigationView {
-                VStack {
-                    if model.error != nil {
-                       // Error view
-                    } else {
-                        ScrollView(showsIndicators: false) {
-                            ForEach(model.allEvents) { event in
-                                CardStructView {
-                                    content(event: event)
-                                        .padding()
-                                }
-                                    .padding(.horizontal)
-                            }
-                        }.refreshable {
-                            loadData()
-                        }
-                    }
-                }.task {
-                    loadData()
+            VStack {
+                if let error = model.error {
+//                    ErrorView(error: error)
+                } else {
+                    eventList
                 }
-                .navigationTitle("Events")
+            }
+            .task {
+                loadData()
+            }
+            .navigationTitle("Events")
+        }
+    }
+
+    private var eventList: some View {
+        ScrollView(showsIndicators: false) {
+            ForEach(model.allEvents) { event in
+                eventCard(for: event)
+                    .padding(.horizontal)
             }
         }
+        .refreshable {
+            loadData()
+        }
+    }
 
     private func loadData() {
-        #warning("Mock Data is active")
-        model.loadAllEvents(mockData: true)
+           #warning("Mock Data is active")
+           model.loadAllEvents(mockData: true)
+       }
+
+    @ViewBuilder
+    private func eventCard(for event: Event) -> some View {
+        NavigationLink(destination: DetailView(event: event)) {
+             CardStructView {
+                 content(event: event)
+                     .padding()
+             }
+         }
     }
 
     @ViewBuilder
@@ -106,6 +120,7 @@ struct HomeView: View {
             Spacer()
             Text(event.venue?.address ?? "body")
             Text(event.venue?.country ?? "body")
+            Text("\(event.id ?? 0)")
         } .foregroundColor(.R.SurfaceLight.opacity(0.5))
           .font(.R.section2)
     }
