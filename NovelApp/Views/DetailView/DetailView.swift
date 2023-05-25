@@ -20,9 +20,7 @@ struct DetailView: View {
         VStack {
             ScrollView {
                 ForEach(model.event.performers ?? []) { performer in
-                    VStack {
-                        setupPerformerCard(performer)
-                    }
+                    setupPerformerCard(performer)
                 }
             }.navigationTitle("Performers")
         }
@@ -30,29 +28,38 @@ struct DetailView: View {
 
     @ViewBuilder
     func setupPerformerCard(_ performer: Event.Performers) -> some View {
-        let typePerfomer = Utils.replaceUnderscoreWithSpace(in: performer.type ?? "")
         Link(destination: URL(string: performer.url ?? BASE_URL)!) {
             ZStack {
-                KFImage(performer.image?.toURL())
-                    .resizable()
-                    .overlay {
-                        Rectangle()
-                            .foregroundColor(.R.Primary)
-                            .opacity(0.8)
-                    }
-                    .aspectRatio(contentMode: .fill)
-                    .frame(maxWidth: .infinity)
-                    .cornerRadius(12)
-                VStack {
-                    Text(performer.name ?? "")
-                        .foregroundColor(.R.SurfaceLight)
-                        .font(.R.section1)
-                    Text(typePerfomer)
-                        .foregroundColor(.R.Star)
-                        .font(.R.section2)
-                }
+                setupBackground(performer)
+                setupTitleAndType(performer)
             }.padding()
         }
     }
 
+    @ViewBuilder
+    func setupBackground(_ performer: Event.Performers) -> some View {
+            KFImage(performer.image?.toURL())
+                .resizable()
+                .overlay {
+                    Rectangle()
+                        .foregroundColor(.R.Primary)
+                        .opacity(0.8)
+                }
+                .aspectRatio(contentMode: .fill)
+                .frame(maxWidth: .infinity)
+                .cornerRadius(12)
+    }
+
+    @ViewBuilder
+    func setupTitleAndType(_ performer: Event.Performers) -> some View {
+        let typePerfomer = Utils.replaceUnderscoreWithSpace(in: performer.type ?? "")
+        VStack {
+            Text(performer.name ?? "")
+                .foregroundColor(.R.SurfaceLight)
+                .font(.R.section1)
+            Text(typePerfomer)
+                .foregroundColor(.R.Star)
+                .font(.R.section2)
+        }
+    }
 }
