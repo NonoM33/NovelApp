@@ -32,7 +32,7 @@ class HomeViewModel: ObservableObject {
     func isLoading() -> Bool {
         return self.allEvents.isEmpty
     }
-    
+
     func showingDetail() {
         showDetail = true
     }

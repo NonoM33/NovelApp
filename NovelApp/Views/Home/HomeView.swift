@@ -14,8 +14,8 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if let error = model.error {
-//                    ErrorView(error: error)
+                if model.error != nil {
+                    Text("Error")
                 } else {
                     eventList
                 }
@@ -40,8 +40,7 @@ struct HomeView: View {
     }
 
     private func loadData() {
-           #warning("Mock Data is active")
-           model.loadAllEvents(mockData: true)
+           model.loadAllEvents()
        }
 
     @ViewBuilder
@@ -104,7 +103,7 @@ struct HomeView: View {
             if let lowestPrice = event.stats?.lowest_price,
                let highestPrice = event.stats?.highest_price {
                 HStack {
-                    Text("$")
+                    Text(Utils.currentCurrencySymbol())
                     Text(String(lowestPrice))
                     Text(" - ")
                     Text(String(highestPrice))
@@ -118,9 +117,8 @@ struct HomeView: View {
     private func setupFooterCard(_ event: Event) -> some View {
         HStack {
             Spacer()
-            Text(event.venue?.address ?? "body")
-            Text(event.venue?.country ?? "body")
-            Text("\(event.id ?? 0)")
+            Text(event.venue?.address ?? "")
+            Text(event.venue?.country ?? "")
         } .foregroundColor(.R.SurfaceLight.opacity(0.5))
           .font(.R.section2)
     }
