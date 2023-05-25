@@ -8,7 +8,19 @@
 import Foundation
 
 class EventsManager: ObservableObject {
-    func getAllFixture(_ completion: @escaping (Result<[Event]?, Error>) -> Void) {
+    func getAllEvent(_ completion: @escaping (Result<[Event]?, Error>) -> Void) {
+        EventService.shared.getEvents { result in
+            switch result {
+            case let .success(events):
+                completion(.success(events.events))
+            case let .failure(failure):
+                print(ERROR_ALERT_MESSAGE, failure.localizedDescription)
+                completion(.failure(failure))
+            }
+        }
+    }
+
+    func getLocalEvent(_ completion: @escaping (Result<[Event]?, Error>) -> Void) {
         EventService.shared.getEvents { result in
             switch result {
             case let .success(events):

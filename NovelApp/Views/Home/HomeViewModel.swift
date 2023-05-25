@@ -10,28 +10,30 @@ import SwiftUI
 class HomeViewModel: ObservableObject {
     let manager = EventsManager()
     @Published var allEvents: [Event] = []
+    @Published var error: String?
 
-    func loadAllEvents(mockData: Bool = false, onLoading: @escaping (Bool) -> Void,
-                       onError: @escaping (Error?) -> Void)
+    func loadAllEvents(mockData: Bool = false)
     {
         if mockData {
             loadAllEventsLocal()
             return
         }
-        onLoading(true)
         manager.getAllEvent { result in
-            onLoading(false)
             switch result {
             case let .success(events):
                 guard let events = events else { return }
                 self.allEvents = events
             case let .failure(failure):
-                onError(failure)
+                self.error = failure.localizedDescription
             }
         }
     }
+    
+    func isLoading() -> Bool {
+        return self.allEvents.isEmpty
+    }
 
-    func loadAllEventsLocal() {
+   private func loadAllEventsLocal() {
         guard let events = manager.getLocalEvent(.events) else { return }
         allEvents = events
     }
