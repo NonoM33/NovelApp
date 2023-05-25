@@ -24,6 +24,10 @@
 		E268C0A02A1F8D8600B15022 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C09F2A1F8D8600B15022 /* APIKeys.swift */; };
 		E268C0A42A1FA2CA00B15022 /* eventsDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = E268C0A32A1FA2CA00B15022 /* eventsDetail.json */; };
 		E268C0A62A1FA53700B15022 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0A52A1FA53700B15022 /* Keys.swift */; };
+		E268C0A92A1FAA2D00B15022 /* EventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0A82A1FAA2D00B15022 /* EventsManager.swift */; };
+		E268C0AB2A1FAB5800B15022 /* LoadEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0AA2A1FAB5800B15022 /* LoadEventType.swift */; };
+		E268C0AF2A1FABFC00B15022 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0AE2A1FABFC00B15022 /* HomeViewModel.swift */; };
+		E268C0B12A1FAC0300B15022 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0B02A1FAC0300B15022 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		E268C09F2A1F8D8600B15022 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		E268C0A32A1FA2CA00B15022 /* eventsDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = eventsDetail.json; sourceTree = "<group>"; };
 		E268C0A52A1FA53700B15022 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		E268C0A82A1FAA2D00B15022 /* EventsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsManager.swift; sourceTree = "<group>"; };
+		E268C0AA2A1FAB5800B15022 /* LoadEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadEventType.swift; sourceTree = "<group>"; };
+		E268C0AE2A1FABFC00B15022 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E268C0B02A1FAC0300B15022 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +106,8 @@
 		E21131CD2A1F60C9007F00A5 /* NovelApp */ = {
 			isa = PBXGroup;
 			children = (
+				E268C0AC2A1FABEC00B15022 /* Views */,
+				E268C0A72A1FAA2000B15022 /* Managers */,
 				E268C09E2A1F8D2A00B15022 /* Info.plist */,
 				E268C0992A1F72F600B15022 /* enums */,
 				E268C0952A1F6B3B00B15022 /* Models */,
@@ -195,8 +205,34 @@
 			children = (
 				E268C09A2A1F730B00B15022 /* NetworkError.swift */,
 				E268C0A52A1FA53700B15022 /* Keys.swift */,
+				E268C0AA2A1FAB5800B15022 /* LoadEventType.swift */,
 			);
 			path = enums;
+			sourceTree = "<group>";
+		};
+		E268C0A72A1FAA2000B15022 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E268C0A82A1FAA2D00B15022 /* EventsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E268C0AC2A1FABEC00B15022 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E268C0AD2A1FABF200B15022 /* Home */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E268C0AD2A1FABF200B15022 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E268C0B02A1FAC0300B15022 /* HomeView.swift */,
+				E268C0AE2A1FABFC00B15022 /* HomeViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,12 +381,16 @@
 			files = (
 				E268C0942A1F6B1500B15022 /* EventService.swift in Sources */,
 				E21131D12A1F60C9007F00A5 /* ContentView.swift in Sources */,
+				E268C0B12A1FAC0300B15022 /* HomeView.swift in Sources */,
 				E21131CF2A1F60C9007F00A5 /* NovelAppApp.swift in Sources */,
 				E268C09B2A1F730B00B15022 /* NetworkError.swift in Sources */,
 				E268C0872A1F692600B15022 /* URL.swift in Sources */,
 				E268C0972A1F6B4800B15022 /* EventsResponse.swift in Sources */,
 				E268C0A02A1F8D8600B15022 /* APIKeys.swift in Sources */,
+				E268C0AF2A1FABFC00B15022 /* HomeViewModel.swift in Sources */,
+				E268C0AB2A1FAB5800B15022 /* LoadEventType.swift in Sources */,
 				E268C0A62A1FA53700B15022 /* Keys.swift in Sources */,
+				E268C0A92A1FAA2D00B15022 /* EventsManager.swift in Sources */,
 				E268C09D2A1F733400B15022 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
