@@ -332,7 +332,6 @@
 			buildConfigurationList = E21131EF2A1F60CB007F00A5 /* Build configuration list for PBXNativeTarget "NovelApp" */;
 			buildPhases = (
 				E268C08C2A1F69B800B15022 /* SwiftLint */,
-				E268C0982A1F700500B15022 /* SwiftFormat */,
 				E21131C72A1F60C9007F00A5 /* Sources */,
 				E21131C82A1F60C9007F00A5 /* Frameworks */,
 				E21131C92A1F60C9007F00A5 /* Resources */,
@@ -450,25 +449,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		E268C0982A1F700500B15022 /* SwiftFormat */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftFormat;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "
-";
 		};
 /* End PBXShellScriptBuildPhase section */
 
