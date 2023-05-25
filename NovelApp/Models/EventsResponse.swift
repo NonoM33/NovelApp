@@ -11,7 +11,7 @@ struct EventsResponse: Codable {
     let events: [Event]?
 }
 
-struct Event: Codable {
+struct Event: Codable, Identifiable {
     let id: Int?
     let type: String?
     let datetime_utc: String?
@@ -44,6 +44,10 @@ struct Event: Codable {
 struct AccessMethod: Codable {
     let method: String?
     let employee_only: Bool?
+    
+    func accessWithQRCode() -> Bool {
+        return method == "QRCODE"
+    }
 }
 
 struct Genres: Codable {

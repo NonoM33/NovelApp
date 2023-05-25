@@ -1,0 +1,161 @@
+{
+    "type": "ncaa_baseball",
+    "id": 5818784,
+    "datetime_utc": "2023-05-24T13:59:00",
+    "venue": {
+        "state": "TX",
+        "name_v2": "Globe Life Field",
+        "postal_code": "76011",
+        "name": "Globe Life Field",
+        "links": [],
+        "timezone": "America/Chicago",
+        "url": "https://seatgeek.com/venues/globe-life-field-2/tickets",
+        "score": 0.63,
+        "location": {
+            "lat": 32.7472,
+            "lon": -97.0838
+        },
+        "address": "734 Stadium Drive",
+        "country": "US",
+        "has_upcoming_events": true,
+        "num_upcoming_events": 66,
+        "city": "Arlington",
+        "slug": "globe-life-field-2",
+        "extended_address": "Arlington, TX 76011",
+        "id": 487468,
+        "popularity": 0,
+        "access_method": {
+            "method": "QRCODE",
+            "created_at": "2023-03-10T16:33:22Z",
+            "employee_only": false
+        },
+        "metro_code": 623,
+        "capacity": 0,
+        "display_location": "Arlington, TX"
+    },
+    "datetime_tbd": false,
+    "performers": [
+        {
+            "type": "ncaa_baseball",
+            "name": "Big 12 Baseball Championship",
+            "image": "https://seatgeek.com/images/performers-landscape/big-12-baseball-championship-1-b4f969/149908/huge.jpg",
+            "id": 149908,
+            "images": {
+                "huge": "https://seatgeek.com/images/performers-landscape/big-12-baseball-championship-1-b4f969/149908/huge.jpg"
+            },
+            "divisions": null,
+            "has_upcoming_events": true,
+            "primary": true,
+            "stats": {
+                "event_count": 5
+            },
+            "taxonomies": [
+                {
+                    "id": 1000000,
+                    "name": "sports",
+                    "parent_id": null,
+                    "document_source": {
+                        "source_type": "ELASTIC",
+                        "generation_type": "FULL"
+                    },
+                    "rank": 0
+                },
+                {
+                    "id": 1010000,
+                    "name": "baseball",
+                    "parent_id": 1000000,
+                    "document_source": {
+                        "source_type": "ELASTIC",
+                        "generation_type": "FULL"
+                    },
+                    "rank": 0
+                },
+                {
+                    "id": 1010200,
+                    "name": "ncaa_baseball",
+                    "parent_id": 1010000,
+                    "document_source": {
+                        "source_type": "ELASTIC",
+                        "generation_type": "FULL"
+                    },
+                    "rank": 0
+                }
+            ],
+            "image_attribution": "SeatGeek - 2022 (2000 X 2000)",
+            "url": "https://seatgeek.com/big-12-baseball-championship-1-tickets",
+            "score": 0.29,
+            "slug": "big-12-baseball-championship-1",
+            "home_venue_id": null,
+            "short_name": "Big 12 Baseball Championship",
+            "num_upcoming_events": 5,
+            "colors": null,
+            "image_license": "SeatGeek - 2022 (2000 X 2000)",
+            "popularity": 0,
+            "home_team": true,
+            "location": null,
+            "image_rights_message": ""
+        }
+    ],
+    "is_open": false,
+    "links": [],
+    "datetime_local": "2023-05-24T03:30:00",
+    "time_tbd": true,
+    "short_title": "Big 12 Baseball Championship - All Sessions",
+    "visible_until_utc": "2023-05-25T10:29:00",
+    "stats": {
+        "listing_count": null,
+        "average_price": null,
+        "lowest_price_good_deals": null,
+        "lowest_price": null,
+        "highest_price": null,
+        "visible_listing_count": null,
+        "dq_bucket_counts": null,
+        "median_price": null,
+        "lowest_sg_base_price": null,
+        "lowest_sg_base_price_good_deals": null
+    },
+    "taxonomies": [
+        {
+            "id": 1000000,
+            "name": "sports",
+            "parent_id": null,
+            "rank": 0
+        },
+        {
+            "id": 1010000,
+            "name": "baseball",
+            "parent_id": 1000000,
+            "rank": 0
+        },
+        {
+            "id": 1010200,
+            "name": "ncaa_baseball",
+            "parent_id": 1010000,
+            "rank": 0
+        }
+    ],
+    "url": "https://seatgeek.com/big-12-baseball-championship-all-sessions-tickets/ncaa-baseball/2023-05-24-3-30-am/5818784",
+    "score": 0,
+    "announce_date": "2022-09-27T00:00:00",
+    "created_at": "2022-09-27T16:00:09",
+    "date_tbd": false,
+    "title": "Big 12 Baseball Championship - All Sessions",
+    "popularity": 0,
+    "description": "",
+    "status": "normal",
+    "access_method": {
+        "method": "QRCODE",
+        "created_at": "2023-03-10T16:33:22Z",
+        "employee_only": false
+    },
+    "event_promotion": null,
+    "announcements": {},
+    "conditional": false,
+    "enddatetime_utc": null,
+    "visible_at": "2023-04-18T00:47:43Z",
+    "is_visible_override": "UNSET",
+    "tdc_pvo_id": 0,
+    "tdc_pv_id": 0,
+    "themes": [],
+    "domain_information": []
+}

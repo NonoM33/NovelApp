@@ -1,5 +1,5 @@
 //
-//  URL.swift
+//  Icons.swift
 //  NovelApp
 //
 //  Created by renaud on 25/05/2023.
@@ -7,4 +7,6 @@
 
 import Foundation
 
-let BASE_URL = "https://api.seatgeek.com/2/events"
+// MARK: SF Synmbol
+
+let ICON_QR_CODE = "qrcode.viewfinder"
