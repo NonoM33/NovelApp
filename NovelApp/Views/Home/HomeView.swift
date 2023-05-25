@@ -88,8 +88,9 @@ struct HomeView: View {
             .font(.R.caption2)
             .padding([.top, .bottom], .R.qλ)
             .padding([.leading, .trailing], .R.hλ)
-            .background(Color.R.Blue)
+            .background(Color.R.Star.opacity(0.5))
             .cornerRadius(.infinity)
+            .bold()
     }
 
     @ViewBuilder
