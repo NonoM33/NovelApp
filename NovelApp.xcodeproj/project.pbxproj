@@ -41,6 +41,7 @@
 		E268C0D02A1FCC7700B15022 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0CF2A1FCC7700B15022 /* DetailView.swift */; };
 		E268C0D22A1FCC8000B15022 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0D12A1FCC8000B15022 /* DetailViewModel.swift */; };
 		E268C0D62A1FCFE800B15022 /* UtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0D52A1FCFE800B15022 /* UtilsTest.swift */; };
+		E268C0D92A1FDCC500B15022 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0D82A1FDCC500B15022 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		E268C0CF2A1FCC7700B15022 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		E268C0D12A1FCC8000B15022 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		E268C0D52A1FCFE800B15022 /* UtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsTest.swift; sourceTree = "<group>"; };
+		E268C0D82A1FDCC500B15022 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 		E21131CD2A1F60C9007F00A5 /* NovelApp */ = {
 			isa = PBXGroup;
 			children = (
+				E268C0D72A1FDCAD00B15022 /* Extension */,
 				E268C0B62A1FB64F00B15022 /* MockData */,
 				E268C0922A1F6B0900B15022 /* Services */,
 				E268C0A72A1FAA2000B15022 /* Managers */,
@@ -253,9 +256,9 @@
 		E268C0AC2A1FABEC00B15022 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E268C0AD2A1FABF200B15022 /* Home */,
 				E268C0CE2A1FCC6B00B15022 /* DetailView */,
 				E268C0BB2A1FB6CB00B15022 /* Reusable */,
-				E268C0AD2A1FABF200B15022 /* Home */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -311,6 +314,14 @@
 				E268C0D12A1FCC8000B15022 /* DetailViewModel.swift */,
 			);
 			path = DetailView;
+			sourceTree = "<group>";
+		};
+		E268C0D72A1FDCAD00B15022 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E268C0D82A1FDCC500B15022 /* String.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,6 +479,7 @@
 			files = (
 				E268C0B52A1FAF2700B15022 /* TypeRequest.swift in Sources */,
 				E268C0C22A1FB73D00B15022 /* Colors.swift in Sources */,
+				E268C0D92A1FDCC500B15022 /* String.swift in Sources */,
 				E268C0C82A1FBA5F00B15022 /* ParsingUtils.swift in Sources */,
 				E268C0942A1F6B1500B15022 /* EventService.swift in Sources */,
 				E268C0B12A1FAC0300B15022 /* HomeView.swift in Sources */,
