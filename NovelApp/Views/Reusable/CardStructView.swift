@@ -7,14 +7,37 @@
 
 import SwiftUI
 
-struct CardStructView: View {
+struct CardStructView<Content>: View where Content: View {
+    let content: Content
+    let width: CGFloat
+
+    init(@ViewBuilder content: @escaping () -> Content) {
+        self.content = content()
+        width = .infinity
+    }
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            setupBackground()
+            VStack {
+                content
+            }
+        }
+        .frame(maxWidth: width)
+    }
+
+    @ViewBuilder
+    private func setupBackground() -> some View {
+        Rectangle()
+            .foregroundColor(.R.darkGray)
+            .cornerRadius(.R.λ)
     }
 }
 
 struct CardStructView_Previews: PreviewProvider {
     static var previews: some View {
-        CardStructView()
+        CardStructView {
+            Text("test")
+        }
     }
 }
