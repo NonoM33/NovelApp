@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SortOption: String {
+enum SortOption {
     case `default`
     case byPriceLowToHigh
     case byPriceHighToLow
