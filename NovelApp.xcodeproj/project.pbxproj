@@ -44,7 +44,6 @@
 		E268C0D92A1FDCC500B15022 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0D82A1FDCC500B15022 /* String.swift */; };
 		E268C0DB2A1FE71300B15022 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0DA2A1FE71300B15022 /* Text.swift */; };
 		E268C0DD2A204CB300B15022 /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0DC2A204CB300B15022 /* SortOption.swift */; };
-		E268C0DF2A204CD200B15022 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268C0DE2A204CD200B15022 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +96,6 @@
 		E268C0D82A1FDCC500B15022 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		E268C0DA2A1FE71300B15022 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		E268C0DC2A204CB300B15022 /* SortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOption.swift; sourceTree = "<group>"; };
-		E268C0DE2A204CD200B15022 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,7 +274,6 @@
 			children = (
 				E268C0B02A1FAC0300B15022 /* HomeView.swift */,
 				E268C0AE2A1FABFC00B15022 /* HomeViewModel.swift */,
-				E268C0DE2A204CD200B15022 /* SettingsView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -491,7 +488,6 @@
 				E268C0B32A1FAD9100B15022 /* Error.swift in Sources */,
 				E268C0C42A1FB77D00B15022 /* Fonts.swift in Sources */,
 				E268C09D2A1F733400B15022 /* NetworkService.swift in Sources */,
-				E268C0DF2A204CD200B15022 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
