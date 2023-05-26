@@ -8,13 +8,12 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var model = HomeViewModel()
-    @State private var showFilter: Bool = false
 
     var body: some View {
         NavigationView {
             VStack {
-                if model.error != nil {
-                    Text(ERROR_MSG)
+                if let error = model.error {
+                    Text(error)
                 } else {
                     eventList
                 }
@@ -22,40 +21,9 @@ struct HomeView: View {
             .task {
                 model.loadAllEvents()
             }
+            .modifier(FilterModier(model: model))
+            .modifier(SettingsModifier(model: model))
             .navigationTitle(EVENT_TITLE)
-            .navigationBarItems(trailing:
-                Button(action: {
-                    showFilter = true
-                }, label: {
-                    Image(systemName: ICON_FILTER)
-                        .imageScale(.large)
-                        .foregroundColor(.R.Primary)
-                })
-            )
-            .sheet(isPresented: $showFilter) {
-                SettingsView(model: model, showFilter: $showFilter)
-            }
-        }
-    }
-
-    private var eventList: some View {
-        ScrollView(showsIndicators: false) {
-            ForEach(model.sortedEvents) { event in
-                eventCard(for: event)
-                    .padding(.horizontal)
-            }
-        }
-        .refreshable {
-            model.loadAllEvents()
-        }
-    }
-
-    private func eventCard(for event: Event) -> some View {
-        NavigationLink(destination: DetailView(event: event)) {
-            CardStructView {
-                content(event: event)
-                    .padding()
-            }
         }
     }
 
@@ -128,10 +96,83 @@ struct HomeView: View {
         } .foregroundColor(.R.SurfaceLight.opacity(0.5))
             .font(.R.body1)
     }
+
+    private var eventList: some View {
+        ScrollView(showsIndicators: false) {
+            ForEach(model.sortedEvents) { event in
+                eventCard(for: event)
+                    .padding(.horizontal)
+            }
+        }
+        .refreshable {
+            model.loadAllEvents()
+        }
+    }
+
+    private func eventCard(for event: Event) -> some View {
+        NavigationLink(destination: DetailView(event: event)) {
+            CardStructView {
+                content(event: event)
+                    .padding()
+            }
+        }
+    }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+    }
+}
+
+// MARK: Modifier Settings
+
+struct SettingsModifier: ViewModifier {
+    @ObservedObject var model: HomeViewModel
+
+    func body(content: Content) -> some View {
+        content
+            .actionSheet(isPresented: $model.showFilter) {
+                ActionSheet(title: Text("Filter"), buttons: [
+                    .default(Text("Default"), action: {
+                        model.sortOption = .default
+                        model.updateSortOption()
+                    }),
+                    .default(Text("Price Low to High"), action: {
+                        model.sortOption = .byPriceLowToHigh
+                        model.updateSortOption()
+                    }),
+                    .default(Text("Price High to Low"), action: {
+                        model.sortOption = .byPriceHighToLow
+                        model.updateSortOption()
+                    }),
+                    .default(Text("By Date"), action: {
+                        model.sortOption = .byDate
+                        model.updateSortOption()
+                    }),
+                    .cancel()
+                ])
+            }
+    }
+}
+
+// MARK: Modifier Filter Button
+
+struct FilterModier: ViewModifier {
+    @ObservedObject var model: HomeViewModel
+
+    func body(content: Content) -> some View {
+        content
+        .navigationBarItems(trailing:
+            Button(action: {
+                model.showFilter = true
+            }, label: {
+                Text(model.sortOption.toString())
+                    .foregroundColor(.R.Primary.opacity(0.4))
+                Image(systemName: ICON_FILTER)
+                    .imageScale(.large)
+                    .foregroundColor(.R.Primary)
+            })
+        )
     }
 }

@@ -13,6 +13,7 @@ class HomeViewModel: ObservableObject {
     @Published var error: String?
     @Published var showDetail: Bool = false
     @Published var sortOption: SortOption = .default
+    @Published var showFilter: Bool = false
 
     func isLoading() -> Bool {
         return self.allEvents.isEmpty
@@ -38,8 +39,8 @@ class HomeViewModel: ObservableObject {
         }
     }
 
-   private func loadAllEventsLocal() {
-       guard let events = manager.getLocalEvent(.events) else { return }
+    private func loadAllEventsLocal() {
+        guard let events = manager.getLocalEvent(.events) else { return }
         allEvents = events
     }
 
@@ -64,15 +65,22 @@ class HomeViewModel: ObservableObject {
 
         case .byDate:
             return allEvents.sorted { event1, event2 in
-                let date1 = dateFormatter.date(from: event1.datetime_utc ?? EMPTY_TXT) ?? Date()
-                let date2 = dateFormatter.date(from: event2.datetime_utc ?? EMPTY_TXT) ?? Date()
+                guard let date1 = event1.datetime_utc, let date2 = event2.datetime_utc else { return false }
                 return date1 > date2
             }
         }
     }
 
-    private var dateFormatter: ISO8601DateFormatter = {
-           let formatter = ISO8601DateFormatter()
-           return formatter
-       }()
+    func updateSortOption() {
+          switch sortOption {
+          case .default:
+              sortOption = .default
+          case .byPriceLowToHigh:
+              sortOption = .byPriceLowToHigh
+          case .byPriceHighToLow:
+              sortOption = .byPriceHighToLow
+          case .byDate:
+              sortOption = .byDate
+          }
+      }
 }
