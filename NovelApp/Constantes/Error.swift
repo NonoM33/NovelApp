@@ -10,3 +10,4 @@ import Foundation
 let ERROR_ALERT_MESSAGE = "🛑 ERROR 🛑 : "
 let LOAD_DATA_ERROR = "Load Data Error"
 let PARSING_ERROR = "Parsing Error"
+let ERROR_MSG = "Error"

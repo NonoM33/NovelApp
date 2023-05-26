@@ -10,3 +10,4 @@ import Foundation
 // MARK: SF Synmbol
 
 let ICON_QR_CODE = "qrcode.viewfinder"
+let ICON_FILTER = "slider.horizontal.3"

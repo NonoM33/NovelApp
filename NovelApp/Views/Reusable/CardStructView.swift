@@ -37,7 +37,7 @@ struct CardStructView<Content>: View where Content: View {
 struct CardStructView_Previews: PreviewProvider {
     static var previews: some View {
         CardStructView {
-            Text("test")
+            Text(EVENT_TITLE)
         }
     }
 }
