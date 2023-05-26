@@ -133,20 +133,20 @@ struct SettingsModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .actionSheet(isPresented: $model.showFilter) {
-                ActionSheet(title: Text("Filter"), buttons: [
-                    .default(Text("Default"), action: {
+                ActionSheet(title: Text(SORT_TITLE), buttons: [
+                    .default(Text(SORT_DEFAULT), action: {
                         model.sortOption = .default
                         model.updateSortOption()
                     }),
-                    .default(Text("Price Low to High"), action: {
+                    .default(Text(SORT_PRICE_LOW_TO_HIGH), action: {
                         model.sortOption = .byPriceLowToHigh
                         model.updateSortOption()
                     }),
-                    .default(Text("Price High to Low"), action: {
+                    .default(Text(SORT_PRICE_HIGH_TO_LOW), action: {
                         model.sortOption = .byPriceHighToLow
                         model.updateSortOption()
                     }),
-                    .default(Text("By Date"), action: {
+                    .default(Text(SORT_DATE), action: {
                         model.sortOption = .byDate
                         model.updateSortOption()
                     }),
