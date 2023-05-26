@@ -22,7 +22,7 @@ struct DetailView: View {
                 ForEach(model.event.performers ?? []) { performer in
                     setupPerformerCard(performer)
                 }
-            }.navigationTitle("Performers")
+            }.navigationTitle(PERFORMERS_TITLE)
         }
     }
 
@@ -52,9 +52,9 @@ struct DetailView: View {
 
     @ViewBuilder
     func setupTitleAndType(_ performer: Event.Performers) -> some View {
-        let typePerfomer = Utils.replaceUnderscoreWithSpace(in: performer.type ?? "")
+        let typePerfomer = Utils.replaceUnderscoreWithSpace(in: performer.type ?? EMPTY_TXT)
         VStack {
-            Text(performer.name ?? "")
+            Text(performer.name ?? EMPTY_TXT)
                 .foregroundColor(.R.SurfaceLight)
                 .font(.R.section1)
             Text(typePerfomer)
