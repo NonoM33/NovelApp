@@ -19,7 +19,7 @@ NovelApp is an iOS application developed by Renaud Cosson as part of a technical
 
 ## Installation
 
-Clone the repository and open the `.xcodeproj` or `.xcworkspace` file in Xcode. Then, build and run the project on your preferred simulator or iOS device.
+Clone the repository and open the `.xcodeproj` file in Xcode. Then, build and run the project on your preferred simulator or iOS device.
 
 ## Author
 
