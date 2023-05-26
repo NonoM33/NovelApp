@@ -2,7 +2,7 @@
 
 ## Description
 
-NovelApp is an iOS application developed by Renaud Cosson as part of a technical test for company X. The application displays events obtained from an API and provides a detailed view of each event.
+NovelApp is an iOS application developed by Renaud Cosson as part of a technical test for company Fabernovel. The application displays events obtained from an API and provides a detailed view of each event.
 
 ## Features
 
@@ -28,4 +28,3 @@ Clone the repository and open the `.xcodeproj` or `.xcworkspace` file in Xcode. 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
