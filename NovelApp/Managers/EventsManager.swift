@@ -7,7 +7,7 @@
 
 import Foundation
 
-class EventsManager: ObservableObject {
+class EventsManager {
     func getAllEvent(_ completion: @escaping (Result<[Event]?, Error>) -> Void) {
         EventService.shared.getEvents { result in
             switch result {

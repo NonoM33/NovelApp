@@ -3,7 +3,7 @@
 //  NovelApp
 //
 //  Created by renaud on 25/05/2023.
-//
+// swiftlint:disable type_name
 
 import Foundation
 import SwiftUI

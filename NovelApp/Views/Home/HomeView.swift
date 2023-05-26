@@ -9,35 +9,48 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var model = HomeViewModel()
+    @State private var selectedEvent: Event?
 
     var body: some View {
         NavigationView {
-                VStack {
-                    if model.error != nil {
-                       // Error view
-                    } else {
-                        ScrollView(showsIndicators: false) {
-                            ForEach(model.allEvents) { event in
-                                CardStructView {
-                                    content(event: event)
-                                        .padding()
-                                }
-                                    .padding(.horizontal)
-                            }
-                        }.refreshable {
-                            loadData()
-                        }
-                    }
-                }.task {
-                    #warning("Mock Data is active")
-                    loadData()
+            VStack {
+                if model.error != nil {
+                    Text("Error")
+                } else {
+                    eventList
                 }
-                .navigationTitle("Events")
+            }
+            .task {
+                loadData()
+            }
+            .navigationTitle("Events")
+        }
+    }
+
+    private var eventList: some View {
+        ScrollView(showsIndicators: false) {
+            ForEach(model.allEvents) { event in
+                eventCard(for: event)
+                    .padding(.horizontal)
             }
         }
+        .refreshable {
+            loadData()
+        }
+    }
 
     private func loadData() {
-        model.loadAllEvents(mockData: true)
+           model.loadAllEvents()
+       }
+
+    @ViewBuilder
+    private func eventCard(for event: Event) -> some View {
+        NavigationLink(destination: DetailView(event: event)) {
+             CardStructView {
+                 content(event: event)
+                     .padding()
+             }
+         }
     }
 
     @ViewBuilder
@@ -75,8 +88,9 @@ struct HomeView: View {
             .font(.R.caption2)
             .padding([.top, .bottom], .R.qλ)
             .padding([.leading, .trailing], .R.hλ)
-            .background(Color.R.Blue)
+            .background(Color.R.Star.opacity(0.5))
             .cornerRadius(.infinity)
+            .bold()
     }
 
     @ViewBuilder
@@ -90,7 +104,7 @@ struct HomeView: View {
             if let lowestPrice = event.stats?.lowest_price,
                let highestPrice = event.stats?.highest_price {
                 HStack {
-                    Text("$")
+                    Text(Utils.currentCurrencySymbol())
                     Text(String(lowestPrice))
                     Text(" - ")
                     Text(String(highestPrice))
@@ -104,8 +118,8 @@ struct HomeView: View {
     private func setupFooterCard(_ event: Event) -> some View {
         HStack {
             Spacer()
-            Text(event.venue?.address ?? "body")
-            Text(event.venue?.country ?? "body")
+            Text(event.venue?.address ?? "")
+            Text(event.venue?.country ?? "")
         } .foregroundColor(.R.SurfaceLight.opacity(0.5))
           .font(.R.section2)
     }

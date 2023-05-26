@@ -26,12 +26,11 @@ struct Event: Codable, Identifiable {
         let access_method: AccessMethod?
     }
 
-    struct Performers: Codable {
+    struct Performers: Codable, Identifiable {
         let id: Int?
         let name: String?
         let type: String?
         let image: String?
-        let genres: [Genres]?
         let url: String?
     }
 
@@ -43,19 +42,8 @@ struct Event: Codable, Identifiable {
 
 struct AccessMethod: Codable {
     let method: String?
-    let employee_only: Bool?
-    
+
     func accessWithQRCode() -> Bool {
         return method == "QRCODE"
-    }
-}
-
-struct Genres: Codable {
-    let id: Int?
-    let name: String
-    let images: ImageGenres?
-
-    struct ImageGenres: Codable {
-        let block: String?
     }
 }
