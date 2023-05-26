@@ -1,4 +1,3 @@
-//
 //  HomeView.swift
 //  NovelApp
 //
@@ -9,48 +8,55 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var model = HomeViewModel()
-    @State private var selectedEvent: Event?
+    @State private var showFilter: Bool = false
 
     var body: some View {
         NavigationView {
             VStack {
                 if model.error != nil {
-                    Text("Error")
+                    Text(ERROR_MSG)
                 } else {
                     eventList
                 }
             }
             .task {
-                loadData()
+                model.loadAllEvents()
             }
-            .navigationTitle("Events")
+            .navigationTitle(EVENT_TITLE)
+            .navigationBarItems(trailing:
+                Button(action: {
+                    showFilter = true
+                }, label: {
+                    Image(systemName: ICON_FILTER)
+                        .imageScale(.large)
+                        .foregroundColor(.R.Primary)
+                })
+            )
+            .sheet(isPresented: $showFilter) {
+                SettingsView(model: model, showFilter: $showFilter)
+            }
         }
     }
 
     private var eventList: some View {
         ScrollView(showsIndicators: false) {
-            ForEach(model.allEvents) { event in
+            ForEach(model.sortedEvents) { event in
                 eventCard(for: event)
                     .padding(.horizontal)
             }
         }
         .refreshable {
-            loadData()
+            model.loadAllEvents()
         }
     }
 
-    private func loadData() {
-           model.loadAllEvents()
-       }
-
-    @ViewBuilder
     private func eventCard(for event: Event) -> some View {
         NavigationLink(destination: DetailView(event: event)) {
-             CardStructView {
-                 content(event: event)
-                     .padding()
-             }
-         }
+            CardStructView {
+                content(event: event)
+                    .padding()
+            }
+        }
     }
 
     @ViewBuilder
@@ -67,23 +73,22 @@ struct HomeView: View {
     @ViewBuilder
     private func setupHeaderCard(_ event: Event) -> some View {
         let lineMAx = 2
-            HStack {
-                Text(event.venue?.name ?? "")
+        HStack {
+            Text(event.venue?.name ?? EMPTY_TXT)
+                .foregroundColor(.R.SurfaceLight)
+                .lineLimit(lineMAx)
+            Spacer()
+            if event.venue?.access_method?.accessWithQRCode() ?? false {
+                Image(systemName: ICON_QR_CODE)
+                    .font(.system(size: .R.λ))
                     .foregroundColor(.R.SurfaceLight)
-                    .lineLimit(lineMAx)
-                Spacer()
-                if event.venue?.access_method?.accessWithQRCode() ?? false {
-                    Image(systemName: ICON_QR_CODE)
-                        .font(.system(size: .R.λ))
-                        .foregroundColor(.R.SurfaceLight)
-                }
-                setupPilule(event.type)
             }
+            setupPilule(event.type)
+        }
     }
 
-    @ViewBuilder
     private func setupPilule(_ eventType: String?) -> some View {
-        Text(Utils.replaceUnderscoreWithSpace(in: eventType ?? " "))
+        Text(Utils.replaceUnderscoreWithSpace(in: eventType ?? SPACE_TXT))
             .foregroundColor(.R.SurfaceLight)
             .font(.R.caption2)
             .padding([.top, .bottom], .R.qλ)
@@ -97,7 +102,7 @@ struct HomeView: View {
     private func setupBodyCard(_ event: Event) -> some View {
         VStack(spacing: .R.qλ) {
             if let date = event.datetime_utc {
-                Text(Utils.formatDate(date) ?? "")
+                Text(Utils.formatDate(date) ?? EMPTY_TXT)
                     .foregroundColor(.R.SurfaceLight)
                     .font(.R.section1)
             }
@@ -106,7 +111,7 @@ struct HomeView: View {
                 HStack {
                     Text(Utils.currentCurrencySymbol())
                     Text(String(lowestPrice))
-                    Text(" - ")
+                    Text(SEPARATOR)
                     Text(String(highestPrice))
                 }.foregroundColor(.R.Star)
                  .font(.R.section2)
@@ -118,10 +123,10 @@ struct HomeView: View {
     private func setupFooterCard(_ event: Event) -> some View {
         HStack {
             Spacer()
-            Text(event.venue?.address ?? "")
-            Text(event.venue?.country ?? "")
+            Text(event.venue?.address ?? EMPTY_TXT)
+            Text(event.venue?.country ?? EMPTY_TXT)
         } .foregroundColor(.R.SurfaceLight.opacity(0.5))
-          .font(.R.section2)
+            .font(.R.body1)
     }
 }
 
